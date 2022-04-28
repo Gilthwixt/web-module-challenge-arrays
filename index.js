@@ -46,8 +46,9 @@ Use the copy function below to do the following:
 */
 
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(originalFlavors){
+  const originalFlavorsCopy = [...originalFlavors]
+  return(originalFlavorsCopy)
 }
 
 
@@ -63,8 +64,10 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-  /*your code here*/
+function is31Flavors(originalFlavors){
+  if (originalFlavors.length = 31){
+    return(true)
+  }
  }
 
 
@@ -82,9 +85,17 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
-  /*your code here*/
+function addFlavor(array, flavor){
+  console.log({before:array})
+  array.unshift(flavor)
+  console.log({after:array})
+  return(array)
  }
+
+//addFlavor check
+
+// console.log("Testing addFlavor function...")
+// addFlavor(originalFlavors, "Raspberry Cheesecake")
 
 
 
@@ -100,8 +111,9 @@ Use the removeLastFlavor function below to do the following:
 */
 
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(array){
+ array.pop()
+ return(array)
 }
 
 
@@ -118,8 +130,8 @@ Use the getFlavorByIndex function below to do the following:
 */
 
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(array, a){
+  return array[a]
 }
 
 
@@ -138,10 +150,13 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(array, removedFlavor){
+  console.log(array)
+  let rFlavorIndex = (array.indexOf(removedFlavor))
+  array.splice(rFlavorIndex, 1)
+  console.log(array)
+  return(array)
 }
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -163,10 +178,19 @@ Use the filterByWord function below to do the following:
 */
 
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, flavorFilter) {
+  const filteredFlavors = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].includes(flavorFilter)){
+      filteredFlavors.push(array[i]);
+    } 
+  }
+  console.log("Testing filtered flavor array...");
+  console.log(filteredFlavors);
+  return filteredFlavors;
 }
 
+// filterByWord(originalFlavors, 'Chocolate')
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
@@ -283,7 +307,6 @@ function getRandomFlavors(/*code here*/){
 //   "Chocolate Chocolate Chip Cheesecake",
 //   "Caramel 'n' Cookies"
 // ]
-
 
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
